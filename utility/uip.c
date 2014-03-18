@@ -110,13 +110,13 @@ const uip_ipaddr_t uip_netmask =
 uip_ipaddr_t uip_hostaddr, uip_draddr, uip_netmask;
 #endif /* UIP_FIXEDADDR */
 
-static const uip_ipaddr_t all_ones_addr =
+uip_ipaddr_t all_ones_addr =
 #if UIP_CONF_IPV6
   {0xffff,0xffff,0xffff,0xffff,0xffff,0xffff,0xffff,0xffff};
 #else /* UIP_CONF_IPV6 */
   {0xffff,0xffff};
 #endif /* UIP_CONF_IPV6 */
-static const uip_ipaddr_t all_zeroes_addr =
+uip_ipaddr_t all_zeroes_addr =
 #if UIP_CONF_IPV6
   {0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000};
 #else /* UIP_CONF_IPV6 */
@@ -542,7 +542,7 @@ uip_listen(u16_t port)
 #define UIP_REASS_BUFSIZE (UIP_BUFSIZE - UIP_LLH_LEN)
 static u8_t uip_reassbuf[UIP_REASS_BUFSIZE];
 static u8_t uip_reassbitmap[UIP_REASS_BUFSIZE / (8 * 8)];
-static const u8_t bitmap_bits[8] = {0xff, 0x7f, 0x3f, 0x1f,
+u8_t bitmap_bits[8] = {0xff, 0x7f, 0x3f, 0x1f,
 				    0x0f, 0x07, 0x03, 0x01};
 static u16_t uip_reasslen;
 static u8_t uip_reassflags;

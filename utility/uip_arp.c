@@ -102,9 +102,9 @@ struct arp_entry {
   u8_t time;
 };
 
-static const struct uip_eth_addr broadcast_ethaddr =
+struct uip_eth_addr broadcast_ethaddr =
   {{0xff,0xff,0xff,0xff,0xff,0xff}};
-static const u16_t broadcast_ipaddr[2] = {0xffff,0xffff};
+u16_t broadcast_ipaddr[2] = {0xffff,0xffff};
 
 static struct arp_entry arp_table[UIP_ARPTAB_SIZE];
 static u16_t ipaddr[2];
